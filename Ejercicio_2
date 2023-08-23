@@ -1,19 +1,18 @@
 public class Promedio {
 
     public static void main(String[] args) {
-        int[] numeros = {40, 50, 60, 24, 66, 12, 98}; //Arreglo de enteros llamado numeros
-        int promedio = calcularPromedio(numeros); //para calcular el promedio de los valores del arreglo
-        System.out.println("El promedio es: " + promedio); // se imprime por consola
+        int[] numeros = {40, 50, 60, 24, 66, 12, 98};
+        int promedio = calcularPromedio(numeros); 
+        System.out.println("El promedio es: " + promedio); 
 
-        // Indica si cada número está por encima o debajo del promedio
+    
         for (int numero : numeros) {
-            boolean estaArriba = numero > promedio; //indica si el valor actual esta pr encima o por debajo del promedio
-            System.out.println(numero + " está " + (estaArriba ? "por encima" : "por debajo") + " del promedio"); // se imprime por consola
+            boolean estaArriba = numero > promedio;
+            System.out.println(numero + " está " + (estaArriba ? "por encima" : "por debajo") + " del promedio"); 
         }
     }
-        // Calcula el promedio  de numeros del arreglo
     private static int calcularPromedio(int[] numeros) {
-        int suma = 0; //entero llamado suma inicializado en 0
+        int suma = 0; 
         for (int numero : numeros) {
             suma += numero;
         }
