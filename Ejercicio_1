@@ -2,33 +2,33 @@ public class temperatura_1 {
     public temperatura_1() {
     }
         public static void main(String[] args) {
-          double celsius = 0.0;
-          double fahrenheit = celsiusToFahrenheit(celsius);
-           
+            
+            double celsius = 0.0;
+            double fahrenheit = celsiusToFahrenheit(celsius);
             System.out.println("" + celsius + "C = " + fahrenheit + "F");
+            
             fahrenheit = 32.0;
             celsius = fahrenheitToCelsius(fahrenheit);
-        
             System.out.println("" + fahrenheit + "F = " + celsius + "C");
+            
             fahrenheit = 100.0;
             celsius = fahrenheitToCelsius(fahrenheit);
-        
             System.out.println("" + fahrenheit + "F = " + celsius + "C");
+            
             celsius = 100.0;
             fahrenheit = celsiusToFahrenheit(celsius);
-        
             System.out.println("" + celsius + "C = " + fahrenheit + "F");
+            
             celsius = 25.0;
             fahrenheit = celsiusToFahrenheit(celsius);
-        
             System.out.println("" + celsius + "C = " + fahrenheit + "F");
+            
             celsius = -10.0;
             fahrenheit = celsiusToFahrenheit(celsius);
-        
             System.out.println("" + celsius + "C = " + fahrenheit + "F");
+            
             fahrenheit = -40.0;
             celsius = fahrenheitToCelsius(fahrenheit);
-        
             System.out.println("" + fahrenheit + "F = " + celsius + "C");
     }
 
