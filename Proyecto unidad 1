@@ -1,0 +1,194 @@
+import java.util.*;
+
+public class EncuestaCalidadEducacion {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String[][] datosEncuesta = new String[6][6];
+
+        for (int i = 0; i < 6; i++) {
+            System.out.print("Nombre completo " + (i + 1) + ": ");
+            datosEncuesta[i][0] = sc.nextLine();
+
+            System.out.print("Edad " + (i + 1) + ": ");
+            datosEncuesta[i][1] = sc.nextLine();
+
+            System.out.print("Género (M/F): ");
+            datosEncuesta[i][2] = sc.nextLine();
+            String genero = sc.nextLine();
+            genero = genero.toUpperCase();
+
+            System.out.print("Profesion" + (i + 1) + ": ");
+            datosEncuesta[i][3] = sc.nextLine();
+
+
+            System.out.print("¿Cuál es su opinión sobre la calidad de la educación de Colombia: 1= Buena / 2= Mala / 3= Regular " + (i + 1) + ": ");
+            datosEncuesta[i][4] = sc.nextLine();
+
+            System.out.print("¿Qué le faltaría a Colombia para estar en los primeros lugares a nivel mundial: 1= cobertura / 2= instituciones / 3= financiación " + (i + 1) + ": ");
+            datosEncuesta[i][5] = sc.nextLine();
+        }
+
+
+        // Media de las edades
+        int sum = 0;
+        for (int i = 0; i < datosEncuesta.length; i++) {
+            sum += Integer.parseInt(datosEncuesta[i][1]);
+        }
+        double mediaEdad = (double) sum / datosEncuesta.length;
+        System.out.println("La media de las edades es: " + mediaEdad);
+
+        // Moda de las edades
+        int moda;
+        int maxEdad = Integer.MIN_VALUE;
+        for (int i = 0; i < 6; i++) {
+            maxEdad = Math.max(maxEdad, Integer.parseInt(datosEncuesta[i][1]));
+        }
+        int[] conteo = new int[maxEdad + 1];
+        for (int i = 0; i < 6; i++) {
+            conteo[Integer.parseInt(datosEncuesta[i][1])]++;
+        }
+        int maxConteo = conteo[0];
+        moda = 0;
+        for (int i = 1; i < conteo.length; i++) {
+            if (conteo[i] > maxConteo) {
+                maxConteo = conteo[i];
+                moda = i;
+            }
+        }
+        System.out.println("Moda de las edades: " + moda);
+
+        // Mediana de las edades
+        int[] edadesOrdenadas = new int[datosEncuesta.length];
+        for (int i = 0; i < datosEncuesta.length; i++) {
+            edadesOrdenadas[i] = Integer.parseInt(datosEncuesta[i][1]);
+        }
+        Arrays.sort(edadesOrdenadas);
+        double medianaEdad;
+        if (edadesOrdenadas.length % 2 == 0) {
+            medianaEdad = ((double) edadesOrdenadas[edadesOrdenadas.length / 2] + (double) edadesOrdenadas[edadesOrdenadas.length / 2 - 1]) / 2;
+        } else {
+            medianaEdad = (double) edadesOrdenadas[edadesOrdenadas.length / 2];
+        }
+        System.out.println("La mediana de las edades es: " + medianaEdad);
+
+
+        // Conteo de mujeres y hombres
+        int mujeres = 0;
+        int hombres = 0;
+        for (int i = 0; i < datosEncuesta.length; i++) {
+            if (datosEncuesta[i][2].equals("M")) {
+                hombres++;
+            } else if (datosEncuesta[i][2].equals("F")) {
+                mujeres++;
+            }
+        }
+        System.out.println("Hay " + mujeres + " mujeres y " + hombres + " hombres");
+
+
+        // Frecuencia de las profesiones
+        Map<String, Integer> frecuenciaProfesiones = new HashMap<>();
+        for (int i = 0; i < datosEncuesta.length; i++) {
+            String profesion = datosEncuesta[i][3];
+            if (!frecuenciaProfesiones.containsKey(profesion)) {
+                frecuenciaProfesiones.put(profesion, 1);
+            } else {
+                frecuenciaProfesiones.put(profesion, frecuenciaProfesiones.get(profesion) + 1);
+            }
+        }
+        System.out.println("Frecuencia de las profesiones: " + frecuenciaProfesiones);
+
+        // la media, la moda y la mediana de la respuesta a la pregunta 1
+        double[] mediaRespuesta1 = new double[2];
+        int[] modaRespuesta1 = new int[2];
+        double[] medianaRespuesta1 = new double[2];
+
+        // Media
+        for (int i = 0; i < 6; i++) {
+            mediaRespuesta1[0] += Integer.parseInt(datosEncuesta[i][4]);
+            mediaRespuesta1[1] += Integer.parseInt(datosEncuesta[i][5]);
+        }
+        mediaRespuesta1[0] /= 6;
+        mediaRespuesta1[1] /= 6;
+
+        // Moda
+        int[] conteo1 = new int[3];
+        int[] conteo2 = new int[3];
+        for (int i = 0; i < 6; i++) {
+            conteo1[Integer.parseInt(datosEncuesta[i][4]) - 1]++;
+            conteo2[Integer.parseInt(datosEncuesta[i][5]) - 1]++;
+        }
+        int maxConteo1 = conteo1[0];
+        modaRespuesta1[0] = 1;
+        for (int i = 1; i < conteo1.length; i++) {
+            if (conteo1[i] > maxConteo1) {
+                maxConteo1 = conteo1[i];
+                modaRespuesta1[0] = i + 1;
+            }
+        }
+        int maxConteo2 = conteo2[0];
+        modaRespuesta1[1] = 1;
+        for (int i = 1; i < conteo2.length; i++) {
+            if (conteo2[i] > maxConteo2) {
+                maxConteo2 = conteo2[i];
+                modaRespuesta1[1] = i + 1;
+            }
+        }
+
+        // Mediana
+        int[] tempArray1 = new int[6];
+        int[] tempArray2 = new int[6];
+        for (int i = 0; i < tempArray1.length; i++) {
+            tempArray1[i] = Integer.parseInt(datosEncuesta[i][4]);
+            tempArray2[i] = Integer.parseInt(datosEncuesta[i][5]);
+        }
+        Arrays.sort(tempArray1);
+        Arrays.sort(tempArray2);
+        medianaRespuesta1[0] = tempArray1[tempArray1.length / 2];
+        medianaRespuesta1[1] = tempArray2[tempArray2.length / 2];
+
+        System.out.println("Media de las respuestas a la pregunta sobre la calidad de la educación: " + mediaRespuesta1[0]);
+        System.out.println("Moda de las respuestas a la pregunta sobre la calidad de la educación: " + modaRespuesta1[0]);
+        System.out.println("Mediana de las respuestas a la pregunta sobre la calidad de la educación: " + medianaRespuesta1[0]);
+
+
+        // la media, la moda y la mediana de la respuesta a la pregunta 2
+        double mediaRespuesta2;
+        int modaRespuesta2;
+        double medianaRespuesta2;
+
+        // Media
+        mediaRespuesta2 = 0;
+        for (int i = 0; i < 6; i++) {
+            mediaRespuesta2 += Integer.parseInt(datosEncuesta[i][5]);
+        }
+        mediaRespuesta2 /= 6;
+
+        // Moda
+        int[] conteoRespuesta2 = new int[3];
+        for (int i = 0; i < 6; i++) {
+            conteo[Integer.parseInt(datosEncuesta[i][5]) - 1]++;
+        }
+        int maxConteoRespuesta2 = conteo[0];
+        modaRespuesta2 = 1;
+        for (int i = 1; i < conteo.length; i++) {
+            if (conteo[i] > maxConteo) {
+                maxConteo = conteo[i];
+                modaRespuesta2 = i + 1;
+            }
+        }
+
+        // Mediana
+        int[] tempArray = new int[6];
+        for (int i = 0; i < tempArray.length; i++) {
+            tempArray[i] = Integer.parseInt(datosEncuesta[i][5]);
+        }
+        Arrays.sort(tempArray);
+        medianaRespuesta2 = tempArray[tempArray.length / 2];
+
+        System.out.println("Media de las respuestas a la pregunta 2: " + mediaRespuesta2);
+        System.out.println("Moda de las respuestas a la pregunta 2: " + modaRespuesta2);
+        System.out.println("Mediana de las respuestas a la pregunta 2: " + medianaRespuesta2);
+
+    }
+}
