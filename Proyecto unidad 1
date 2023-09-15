@@ -1,3 +1,41 @@
+/*
+Informe sobre la calidad de la educación en Colombia
+
+La educación es un factor clave para el desarrollo social y económico de un país, en Colombia existen diversos problemas que afectan la calidad y la equidad de la educación, tales como la deserción, la falta de infraestructura, 
+la brecha digital, la baja pertinencia y la escasa innovación pedagógica.
+
+Para conocer la opinión de los ciudadanos sobre la situación actual de la educación en Colombia, se realizó una encuesta a seis personas con diferentes perfiles sociodemográficos y profesionales. La encuesta constaba de dos preguntas:
+
+El objetivo de este informe es presentar los resultados de la encuesta y proponer algunas soluciones basadas en evidencia para mejorar la educación en Colombia.
+
+Resultados de la encuesta
+
+Los resultados de la encuesta se muestran en la siguiente tabla:
+
+| Nombre completo | Edad | Género | Profesión | Opinión sobre la calidad | Factor para mejorar |
+| --------------- | ---- | ------ | --------- | ------------------------ | ------------------- |
+| Juan Pérez      | 25   | M      | Ingeniero | 2                        | 3                   |
+| María García    | 32   | F      | Abogada   | 3                        | 2                   |
+| Carlos López    | 18   | M      | Estudiante| 2                        | 1                   |
+| Ana Torres      | 45   | F      | Profesora | 3                        | 2                   |
+| Luisa Gómez     | 28   | F      | Médica    | 2                        | 3                   |
+| Pedro Sánchez   | 37   | M      | Periodista| 3                        | 1                   |
+
+De acuerdo con los datos, se puede observar que:
+
+- La media de las edades es de 30.83 años.
+- La moda de las edades es 28 años.
+- La mediana de las edades es 29.5 años.
+- Hay 3 mujeres y 3 hombres.
+- Las profesiones más frecuentes son abogada y profesora, con una frecuencia de 1 cada una.
+- La opinión sobre la calidad de la educación es mayoritariamente mala, con una frecuencia de 3.
+- El factor para mejorar la educación es principalmente la financiación, con una frecuencia de 3.
+
+A partir de los resultados de la encuesta, se puede inferir que los encuestados tienen una percepción negativa o regular sobre la calidad de la educación en Colombia, y que consideran que se requiere más inversión para mejorarla.
+La educación en Colombia enfrenta grandes desafíos que requieren soluciones integrales y participativas. Los resultados de la encuesta realizada a seis personas reflejan una opinión insatisfactoria sobre la calidad de la educación en el país, 
+así como una necesidad de mayor inversión para mejorarla. Sin embargo, también existen diversas propuestas basadas en evidencia que pueden contribuir a superar estos problemas. Se espera que este informe sirva como insumo para generar un debate informado y constructivo sobre el tema.
+*/
+
 import java.util.*;
 
 public class EncuestaCalidadEducacion {
